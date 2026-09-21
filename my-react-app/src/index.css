@@ -98,6 +98,10 @@ i{
     backdrop-filter: blur(15px);
 }
 
+.pill{
+    border-radius: 1em;
+    border: solid 1px black;
+}
 
 /*
 ==============================================================================
