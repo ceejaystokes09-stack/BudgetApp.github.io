@@ -94,7 +94,21 @@ Toggle input
 ==============================================================================
 */
 .toggle-checkbox {
-  display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.toggle-checkbox:focus-visible + .toggle-label{
+    outline: solid 2px aquamarine;
+    outline-offset: 1.1px;
+    border:none;
+    border-radius: 34px;
 }
 
 .toggle-label {
@@ -519,15 +533,74 @@ New-taks
     position: absolute;
     opacity: 0;
     visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
     transition: all 0.3s ease;
     transform: translateY(-200vh);
+    border: solid 2px black;
+    border-radius: 1em;
+    background: rgb(242, 245, 245);
+    padding: 10px;
 }
+
 
 .new-task.is-visible .input-feild{
     transform: translateY(0px);
     opacity: 1;
     visibility: visible;
 }
+
+.new-task .input-feild input,
+.new-task .input-feild textarea{
+    border: solid 0.75px rgb(153, 129, 168) ;
+    border-radius: 1em;
+    padding: 3px 5px;
+    width: 400px;
+    transition: all 0.3s ease;
+    box-shadow: -2px 1px 39px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -2px 1px 39px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 1px 39px -10px rgba(0,0,0,0.75);
+    
+}
+
+
+
+.new-task .input-feild input:focus,
+.new-task .input-feild textarea:focus{
+    border-color: rgb(90, 3, 3);
+    outline: solid 2px rgba(9, 215, 223, 0.945) ; 
+    outline-offset: 1.5px;
+    box-shadow: -2px 1px 39px -10px rgba(6,3,133,0.75);
+    -webkit-box-shadow: -2px 1px 39px -10px rgba(6,3,133,0.75);
+    -moz-box-shadow: -2px 1px 39px -10px rgba(6,3,133,0.75);
+}
+
+.new-task .input-feild textarea::placeholder{
+    font-size: larger;
+}
+
+.new-task h1{
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.5px black;
+}
+
+.new-task button[type="submit"]{
+    cursor: pointer;
+    height: 30px;
+    color: white;
+    border-radius: 1em;
+    border: solid 1px rgb(212, 199, 6);
+    background: radial-gradient(circle at 50% 50%, rgb(100, 186, 243), rgb(14, 158, 241), rgb(3, 102, 133));
+    transition: all 0.3s ease;
+}
+
+.new-task button[type="submit"]:hover{
+    scale:1.01;
+    background: radial-gradient(circle at 50% 50%, rgb(78, 166, 224), rgb(4, 97, 151), rgb(2, 59, 77));
+}
+
+
 
 
 

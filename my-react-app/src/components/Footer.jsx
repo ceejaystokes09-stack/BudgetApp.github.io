@@ -9,8 +9,6 @@ function Footer(){
     }   
 
     const add_task = ()=>{
-        console.log("cliked ")
-        console.log(document.querySelector(".new-task"))
         document.querySelector(".new-task").classList.add("is-visible")
     }
 
