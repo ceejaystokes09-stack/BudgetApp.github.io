@@ -10,5 +10,5 @@ createRoot(document.getElementById('root')).render(
     <New_task_form /> 
     <Header />
     <Footer /> 
-  </StrictMode>,
+  </StrictMode>
 )
