@@ -93,6 +93,10 @@ i{
     z-index:999;
 }
 
+.Full-width{
+    width: 100%;
+}
+
 .blur{
     background: rgba(255,255,255,0.57);
     backdrop-filter: blur(15px);
@@ -634,6 +638,29 @@ GROUP
     transform: rotate(-90deg);
 }
 
+.Task{
+    width: min(100%, 480px);
+    margin: 16px auto;
+    border: solid 1px black;
+    border-radius: 1em;overflow: hidden;
+
+}
+
+.Task-Warning{
+    background: lime;
+    align-self: stretch;
+    flex: 0 0 10px;
+    border-radius: inherit;
+    border-right: solid 1px grey;
+    margin-right: 2px;
+}
+
+.Task-info{
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    padding: 2px 5px;
+}
 
 /*
 ========================================
@@ -641,5 +668,5 @@ EXTRA
 ========================================
 */
 body{
-    margin: 100px 100px;
+    margin: 100px clamp(16px, 6vw, 100px);
 }
