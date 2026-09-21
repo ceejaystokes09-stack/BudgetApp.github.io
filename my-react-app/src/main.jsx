@@ -4,11 +4,13 @@ import './index.css'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import New_task_form from './components/New-Task.jsx'
+import Group from './components/Group.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <New_task_form /> 
     <Header />
+    <Group Name="test" />
     <Footer /> 
   </StrictMode>
 )

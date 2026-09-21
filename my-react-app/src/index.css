@@ -42,6 +42,17 @@
     flex-direction: column;
 }
 
+.start{
+    display: flex;
+    align-items: start;
+}
+
+.gap{
+    gap: 25px;
+}
+
+
+
 .space-between{
     display:flex;
     justify-content: space-between;
@@ -601,6 +612,30 @@ New-taks
 }
 
 
+/*
+=========================================
+GROUP 
+=========================================
+*/
+.group-header{
+    background-color: rgb(253, 252, 252);
+    border-radius: 1em 1em 0px 0px ;
+}
+
+.group-header i{
+    transition: transform 0.3s ease;
+}
+
+.group-header i.expanded{
+    transform: rotate(-90deg);
+}
 
 
-
+/*
+========================================
+EXTRA
+========================================
+*/
+body{
+    margin: 100px 100px;
+}
