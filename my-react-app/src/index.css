@@ -76,6 +76,17 @@ i{
     cursor: pointer;
 }
 
+.full-screen{
+    width: 100vw;
+    height: 100vh;
+    z-index:999;
+}
+
+.blur{
+    background: rgba(255,255,255,0.57);
+    backdrop-filter: blur(15px);
+}
+
 
 /*
 ==============================================================================
@@ -479,3 +490,44 @@ BOTTOM NAV
         gap: 4px;
     }
 }
+
+/*
+====================================
+New-taks
+====================================
+*/
+
+.new-task{
+    display: flex;
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+}
+
+.new-task.is-visible{
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+}
+
+.new-task .input-feild{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(-200vh);
+}
+
+.new-task.is-visible .input-feild{
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+

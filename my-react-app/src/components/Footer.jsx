@@ -1,12 +1,18 @@
 import '../index.css'
-
 function Footer(){
     const ChangeTab = (e)=>{
+        console.log("vn")
         document.querySelectorAll(".bottom-nav .bottom-nav__item").forEach(el=>{
             el.classList.remove("is-active")
         })
         e.currentTarget.classList.add("is-active")
     }   
+
+    const add_task = ()=>{
+        console.log("cliked ")
+        console.log(document.querySelector(".new-task"))
+        document.querySelector(".new-task").classList.add("is-visible")
+    }
 
 
     return (
@@ -19,7 +25,7 @@ function Footer(){
                 <i className="fa-solid fa-chart-line" aria-hidden="true"></i>
                 <p>Dashboard</p>
             </div>
-            <div className="bottom-nav__item" onClick={ChangeTab}>
+            <div className="bottom-nav__item" onClick={add_task}>
                 <i className="fa-solid fa-plus" aria-hidden="true"></i>
                 <p>Add</p>
             </div>
