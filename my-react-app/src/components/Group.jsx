@@ -8,10 +8,14 @@ function Group({Tasks, Name}){
     }
 
     return (
+        <>
         <div className="group-header center gap " style={{textAlign: "center"}}>
             <h2>{Name}</h2><i className="fa-solid fa-chevron-left" onClick={expand}></i>
-            <Task />
+            
         </div>
+        <Task />
+        </>
+        
         
     )
 }
