@@ -125,10 +125,6 @@ Side - nav
 =======================================
 */
 
-body{
-    margin: 0px 35px;
-}
-
 .side-nav{
     text-align: center;
     position: fixed;
@@ -406,14 +402,80 @@ input{
 
 }
 
+
+
+
+
 /*
 ========================================
-DONT COPY INTO WORKSHEET 
+BOTTOM NAV  
 =========================================
 */
 
-.test{
-    background: linear-gradient(white,white), linear-gradient(75deg, red,orange);
-    border: solid 2px transparent;
-    padding: 10px;
+.bottom-nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 8px;
+    background: rgb(241, 241, 241);
+    color: #000;
+    width: 100%;
+    min-height: 84px;
+    padding: 10px max(16px, calc((100% - 640px) / 2));
+    border-top: 1px solid rgb(220, 220, 220);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+
+}
+
+.bottom-nav__item{
+    display: flex;
+    cursor: pointer;
+    flex: 1 1 0;
+    max-width: 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 0;
+    padding: 6px 4px;
+    border-radius: 10px;
+    color: rgb(107, 105, 107);
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.bottom-nav__item i{
+    font-size: 18px;
+    pointer-events: none;
+}
+
+.bottom-nav__item p{
+    pointer-events: none;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.bottom-nav__item:hover{
+    background: rgb(212, 236, 231);
+    color: rgb(7, 83, 68);
+}
+.bottom-nav__item.is-active{
+    background: rgb(225, 238, 235);
+    color: rgb(16, 115, 96);
+}
+
+@media (max-width: 500px){
+    .bottom-nav{
+        gap: 2px;
+        padding-inline: 8px;
+    }
+
+    .bottom-nav__item{
+        gap: 4px;
+    }
 }
