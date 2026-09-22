@@ -10,6 +10,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <New_task_form /> 
     <Header />
+    {/* TODO add a loop that loops through all the groups and adds it in the corresponding way */}
     <Group Name="test" />
     <Footer /> 
   </StrictMode>
