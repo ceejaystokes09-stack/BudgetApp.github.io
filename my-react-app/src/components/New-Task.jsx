@@ -1,5 +1,5 @@
 import "../index.css";
-import { useState } from "react";
+//import { useState } from "react";
 
 import Toggle from "./Slider"
 
@@ -9,13 +9,18 @@ function New_task_form(){
     
 
     const Save = () => {
-        const n = document.querySelector(".new-task #Task-name").value;
-        const d = document.querySelector(".new-task #desc").value
-        if(d.length < 1) alert("description cannot be empty.")
-        const m = Number(document.querySelector(".new-task #max-price-input").value)
-        const c = Number(document.querySelector(".new-task #current-price").value) || 0
+        const n = document.querySelector(".new-task #Task-name").value.trim();
+        const d = document.querySelector(".new-task #desc").value.trim();
 
+        if (!n || !d) {
+            alert("Task name and description cannot be empty.")
+            return
+        }
+
+        const m = Number(document.querySelector(".new-task #max-price-input").value) || 0
+        const c = Number(document.querySelector(".new-task #current-price").value) || 0
         const g = document.querySelector(".new-task #toggle").checked
+
         const task = {
             name: n,
             description: d,
@@ -28,7 +33,7 @@ function New_task_form(){
         const updatedTasks = [...savedTasks, task]
 
         localStorage.setItem("tasks", JSON.stringify(updatedTasks))
-        console.log("Task saved:", task)
+        window.dispatchEvent(new Event("tasksUpdated"))
         document.querySelector(".new-task").classList.remove("is-visible")
     }
 
