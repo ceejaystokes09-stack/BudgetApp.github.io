@@ -21,6 +21,10 @@ body:has(.Task-edit.is-visible) {
   
 }
 
+.mrg-l-4{
+  margin-right: 10px;
+}
+
 #root {
     padding-top: 110px;
   padding-bottom: 110px;
@@ -1298,7 +1302,7 @@ Responsive tweaks
   .Task {
     width: min(100%, 440px);
 
-    
+
   }
 }
 

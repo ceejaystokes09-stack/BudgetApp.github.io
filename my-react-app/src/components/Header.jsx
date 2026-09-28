@@ -7,7 +7,7 @@ function Header() {
             <div>
                 <img src="/BudgetApp.github.io/logo.svg" style={{border:"none", width:"80px", height:"80px",}} />
             </div>
-            <div className='center'>
+            <div className='center mrg-l-4'>
                 <i className="fa-solid fa-bell" style={{width: "fit-content"}} ></i>
                 <i><span className="fa-solid fa-circle-user"></span><span className='cut'>Sign in</span></i>
             </div>
