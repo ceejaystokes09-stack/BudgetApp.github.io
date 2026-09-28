@@ -5,7 +5,7 @@ function Header() {
     <>
         <div className="top-nav centerX space-between">
             <div>
-                <img src="/logo.svg" style={{border:"none", width:"80px", height:"80px",}} />
+                <img src="/dist/logo.svg" style={{border:"none", width:"80px", height:"80px",}} />
             </div>
             <div className='center'>
                 <i className="fa-solid fa-bell" style={{width: "fit-content"}} ></i>
