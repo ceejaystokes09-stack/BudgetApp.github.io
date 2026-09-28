@@ -26,6 +26,12 @@ function App() {
   const [parentId, setParentId] = useState('')
   const [taskGroupId, setTaskGroupId] = useState('')
   const [taskFormOpen, setTaskFormOpen] = useState(false)
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark')
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = isDark ? 'dark' : 'light'
+    localStorage.setItem('theme', isDark ? 'dark' : 'light')
+  }, [isDark])
 
   useEffect(() => {
     const refreshTasks = () => setTasks(readSavedItems('tasks'))
@@ -61,7 +67,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header isDark={isDark} onToggleTheme={() => setIsDark(!isDark)} />
       <main className="workspace">
         <section className="workspace-intro">
           <div>

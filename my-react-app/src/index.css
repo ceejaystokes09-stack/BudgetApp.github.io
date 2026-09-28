@@ -1311,3 +1311,196 @@ Responsive tweaks
     display: none;
   }
 }
+
+.theme-toggle {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 17px;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(24, 115, 95, 0.12);
+  color: #18735f;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #e17d5b;
+  outline-offset: 2px;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="dark"] body {
+  background: linear-gradient(180deg, #111918 0%, #192523 100%);
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .top-nav {
+  background: rgba(22, 32, 30, 0.94);
+  border-bottom-color: #344541;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .top-nav i:hover {
+  color: #8cd3bb;
+}
+
+:root[data-theme="dark"] .bottom-nav {
+  background: rgba(22, 32, 30, 0.97);
+  border-top-color: #344541;
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .bottom-nav__item {
+  color: #adbfba;
+}
+
+:root[data-theme="dark"] .bottom-nav__item:hover,
+:root[data-theme="dark"] .bottom-nav__item.is-active {
+  background: #29443c;
+  color: #a8e0ca;
+}
+
+:root[data-theme="dark"] .workspace {
+  --space-ink: #e4efeb;
+  --space-muted: #a0b2ac;
+  --space-line: #3a514a;
+  --space-green: #83d2b4;
+  --space-coral: #f0a184;
+}
+
+:root[data-theme="dark"] .group-create {
+  background: rgba(30, 44, 40, 0.9);
+}
+
+:root[data-theme="dark"] .group-create input,
+:root[data-theme="dark"] .group-create select,
+:root[data-theme="dark"] .task-form-field input,
+:root[data-theme="dark"] .task-form-field select,
+:root[data-theme="dark"] .task-form-field textarea {
+  background: #1b2926;
+  border-color: #435a53;
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .group-create input::placeholder,
+:root[data-theme="dark"] .task-form-field input::placeholder,
+:root[data-theme="dark"] .task-form-field textarea::placeholder {
+  color: #8da29a;
+}
+
+:root[data-theme="dark"] .group-card {
+  background: #1b2926;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="dark"] .group-header,
+:root[data-theme="dark"] .nested-groups .group-header {
+  background: #22332f;
+}
+
+:root[data-theme="dark"] .group-title {
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .nested-groups {
+  border-left-color: #47645a;
+}
+
+:root[data-theme="dark"] .group-task-list .Task {
+  background: #202f2c;
+  border-color: #3a5049;
+}
+
+:root[data-theme="dark"] .Task-info h2,
+:root[data-theme="dark"] .Task-edit__header h3 {
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .Task-info p,
+:root[data-theme="dark"] .task-progress-meta,
+:root[data-theme="dark"] .task-progress-amount {
+  color: #b1c2bc;
+}
+
+:root[data-theme="dark"] .task-progress-meta strong {
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .task-type-badge.In-Progress {
+  background: rgba(131, 210, 180, 0.15);
+  color: #a8e0ca;
+}
+
+:root[data-theme="dark"] .task-type-badge.Completed {
+  background: rgba(94, 234, 212, 0.14);
+  color: #8be0d3;
+}
+
+:root[data-theme="dark"] .task-progress-bar {
+  background: #3b4a45;
+}
+
+:root[data-theme="dark"] .empty-groups {
+  background: rgba(30, 44, 40, 0.56);
+  border-color: #50675e;
+}
+
+:root[data-theme="dark"] .empty-groups-mark {
+  background: #29443c;
+}
+
+:root[data-theme="dark"] .new-task {
+  background: rgba(8, 14, 13, 0.78);
+}
+
+:root[data-theme="dark"] .new-task .input-feild,
+:root[data-theme="dark"] .Task-edit__panel {
+  background: #1c2a27;
+  border-color: #3b514a;
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .new-task h1,
+:root[data-theme="dark"] .new-task .eyebrow {
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .new-task .input-feild input,
+:root[data-theme="dark"] .new-task .input-feild textarea,
+:root[data-theme="dark"] .new-task .input-feild select,
+:root[data-theme="dark"] .Task-edit input,
+:root[data-theme="dark"] .Task-edit textarea {
+  background: #15211f;
+  border-color: #435a53;
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .Task-edit__header {
+  border-bottom-color: #3b514a;
+}
+
+:root[data-theme="dark"] .Task-edit label {
+  color: #c1d0cb;
+}
+
+:root[data-theme="dark"] .Task-edit__close,
+:root[data-theme="dark"] .task-form-close {
+  background: #2c403a;
+  border-color: #496057;
+  color: #e5efeb;
+}
+
+:root[data-theme="dark"] .new-task .task-form-submit {
+  background: #18735f;
+}
