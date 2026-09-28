@@ -7,9 +7,9 @@ function Header() {
             <div>
                 <img src="/logo.svg" style={{border:"none", width:"80px", height:"80px",}} />
             </div>
-            <div>
-                <i className="fa-solid fa-bell cut"  ></i>
-                <i><span className="fa-solid fa-circle-user"></span>Sign in</i>
+            <div className='center'>
+                <i className="fa-solid fa-bell" style={{width: "fit-content"}} ></i>
+                <i><span className="fa-solid fa-circle-user"></span><span className='cut'>Sign in</span></i>
             </div>
 
         </div>

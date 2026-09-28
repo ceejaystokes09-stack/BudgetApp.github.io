@@ -1,5 +1,5 @@
 import '../index.css'
-function Footer(){
+function Footer({ onAddTask, canAddTask }){
     const ChangeTab = (e)=>{
         console.log("vn")
         document.querySelectorAll(".bottom-nav .bottom-nav__item").forEach(el=>{
@@ -8,32 +8,19 @@ function Footer(){
         e.currentTarget.classList.add("is-active")
     }   
 
-    const add_task = ()=>{
-        document.querySelector(".new-task").classList.add("is-visible")
-    }
-
-
     return (
         <footer className="bottom-nav">
             <div className="bottom-nav__item is-active" onClick={ChangeTab}>
                 <i className="fa-solid fa-house" aria-hidden="true"></i>
-                <p>Home</p>
+                <p className='cut'>Home</p>
             </div>
-            <div className="bottom-nav__item" onClick={ChangeTab}>
-                <i className="fa-solid fa-chart-line" aria-hidden="true"></i>
-                <p>Dashboard</p>
-            </div>
-            <div className="bottom-nav__item" onClick={add_task}>
+            <div className={`bottom-nav__item ${canAddTask ? "" : "is-disabled"}`} onClick={canAddTask ? onAddTask : undefined} aria-disabled={!canAddTask}>
                 <i className="fa-solid fa-plus" aria-hidden="true"></i>
-                <p>Add</p>
-            </div>
-            <div className="bottom-nav__item" onClick={ChangeTab}>
-                <i className="fa-solid fa-file-lines" aria-hidden="true"></i>
-                <p>Reports</p>
+                <p className='cut'>Add</p>
             </div>
             <div className="bottom-nav__item" onClick={ChangeTab}>
                 <i className="fa-solid fa-user" aria-hidden="true"></i>
-                <p>Account</p>
+                <p className='cut'>Account</p>
             </div>
         </footer>
     )

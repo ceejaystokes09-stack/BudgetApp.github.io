@@ -1,65 +1,79 @@
-import "../index.css";
-//import { useState } from "react";
-
+import "../index.css"
 import Toggle from "./Slider"
 
+function createId() {
+    return globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`
+}
 
-function New_task_form(){
-    //const [TaskName, setTaskName] = useState(""), [TaskDesc, setTaskDesc] = useState(""), [TaskMax, setTaskMax] = useState(0), [TaskCurrent, setTaskCurrent] = useState(0), [isGroup, setisGroup] = useState(false)
-    
+function NewTaskForm({ groups, selectedGroupId, onSelectGroup, isOpen, onClose, onSave }) {
+    function save(event) {
+        event.preventDefault()
+        const form = event.currentTarget
+        const name = form.elements.taskName.value.trim()
+        const description = form.elements.description.value.trim()
+        const groupId = form.elements.groupId.value
 
-    const Save = () => {
-        const n = document.querySelector(".new-task #Task-name").value.trim();
-        const d = document.querySelector(".new-task #desc").value.trim();
+        if (!name || !description || !groupId) return
 
-        if (!n || !d) {
-            alert("Task name and description cannot be empty.")
-            return
-        }
-
-        const m = Number(document.querySelector(".new-task #max-price-input").value) || 0
-        const c = Number(document.querySelector(".new-task #current-price").value) || 0
-        const g = document.querySelector(".new-task #toggle").checked
-
-        const task = {
-            name: n,
-            description: d,
-            maxPrice: m,
-            currentPrice: c,
-            isGroup: g,
-        }
-
-        const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]")
-        const updatedTasks = [...savedTasks, task]
-
-        localStorage.setItem("tasks", JSON.stringify(updatedTasks))
-        window.dispatchEvent(new Event("tasksUpdated"))
-        document.querySelector(".new-task").classList.remove("is-visible")
+        onSave({
+            id: createId(),
+            groupId,
+            name: name.charAt(0).toUpperCase() + name.slice(1),
+            description: description.charAt(0).toUpperCase() + description.slice(1),
+            maxPrice: Number(form.elements.maxPrice.value) || 0,
+            currentPrice: Number(form.elements.currentPrice.value) || 0,
+            isGroup: form.elements.toggle.checked,
+        })
+        form.reset()
     }
 
     return (
-        <>
-        <div className="full-screen blur center new-task">
-            <div className="input-feild">  
-                <h1>New Task</h1>            
-                <input type="text" id="Task-name" placeholder="Enter Task Name... " required/>
-                <textarea id="desc" contentEditable="true" placeholder="Description..." style={{height: "100px"}}></textarea>
-                <div className="centerX col ">
-                    <label>Max Task Price</label>
-                    <input type="number" name="max-price" id="max-price-input" placeholder="Enter max amount" required />
-                    <label>Current Spent on Task</label>
-                    <input type="number" name="current-price" id="current-price" placeholder="Enter current amount spent" />
+        <div className={`full-screen blur center new-task ${isOpen ? "is-visible" : ""}`} aria-hidden={!isOpen}>
+            <form className="input-feild" onSubmit={save}>
+                <div className="task-form-heading">
+                    <div>
+                        <p className="eyebrow">ADD TO YOUR PLAN</p>
+                        <h1>New task</h1>
+                    </div>
+                    <button type="button" className="task-form-close" onClick={onClose} aria-label="Close">×</button>
                 </div>
-                
-                <div>
-                    <h3>Group? </h3>
-                    
-                    <Toggle /> 
+                <label className="task-form-field">
+                    <span>Task name</span>
+                    <input type="text" name="taskName" placeholder="Enter task name" required />
+                </label>
+                <label className="task-form-field">
+                    <span>Description</span>
+                    <textarea name="description" placeholder="What are you planning?" rows="3" required />
+                </label>
+                <label className="task-form-field">
+                    <span>Group</span>
+                    <select name="groupId" value={selectedGroupId} onChange={(event) => onSelectGroup(event.target.value)} required>
+                        <option value="" disabled>Choose a group</option>
+                        {groups.map((group) => (
+                            <option key={group.id} value={group.id}>
+                                {group.parentId ? "↳ " : ""}{group.name}
+                            </option>
+                        ))}
+                    </select>
+                </label>
+                <div className="task-form-amounts">
+                    <label className="task-form-field">
+                        <span>Budget</span>
+                        <input type="number" name="maxPrice" min="0" placeholder="0" />
+                    </label>
+                    <label className="task-form-field">
+                        <span>Spent</span>
+                        <input type="number" name="currentPrice" min="0" placeholder="0" />
+                    </label>
                 </div>
-                <button type="submit" onClick={Save}>Save</button>
-            </div>
+                <label className="task-complete-toggle">
+                    <Toggle />
+                    <span>Mark as complete</span>
+                </label>
+                <button className="task-form-submit" type="submit">Save task</button>
+            </form>
         </div>
-        </>
     )
 }
-export default New_task_form
+
+export default NewTaskForm

@@ -16,35 +16,54 @@ function Edit({ task, onClose }) {
         window.setTimeout(onClose, 200)
     }
 
+    function Save(){
+        const updatedTask = {
+            ...task,
+            name: document.querySelector(".Task-edit #new-name").value.trim(),
+            description: document.querySelector(".Task-edit #new-desc").value.trim(),
+            maxPrice: Number(document.querySelector(".Task-edit #new-max").value) || 0,
+            currentPrice: Number(document.querySelector(".Task-edit #new-Current").value) || 0,
+        }
+
+        const savedTasks = JSON.parse(localStorage.getItem("tasks") || "[]")
+        const updatedTasks = savedTasks.map((savedTask) => (
+            savedTask.id === task.id ? updatedTask : savedTask
+        ))
+
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks))
+        window.dispatchEvent(new Event("tasksUpdated"))
+        handleClose()
+    }
+
     return (
         <div className={`Task-edit ${isVisible ? "is-visible" : ""}`}>
             <div className="Task-edit__panel">
                 <div className="Task-edit__header">
                     <h3>Edit Task</h3>
-                    <button type="button" className="Task-edit__save">Save</button>
+                    <button type="button" className="Task-edit__save" onClick={Save} >Save</button>
                     <button type="button" className="Task-edit__close" onClick={handleClose}>✕</button>
                     
                 </div>
 
                 <label>
                     Name
-                    <input defaultValue={task.name} />
+                    <input defaultValue={task.name} id="new-name" />
                 </label>
 
                 <label>
                     Description
-                    <textarea defaultValue={task.description} rows="4" />
+                    <textarea defaultValue={task.description} rows="4" id="new-desc" />
                 </label>
 
                 <div className="Task-edit__row">
                     <label>
                         Max
-                        <input type="number" defaultValue={task.maxPrice} />
+                        <input type="number" defaultValue={task.maxPrice} id="new-max" />
                     </label>
 
                     <label>
                         Current
-                        <input type="number" defaultValue={task.currentPrice} />
+                        <input type="number" defaultValue={task.currentPrice} id="new-Current" />
                     </label>
                 </div>
 
