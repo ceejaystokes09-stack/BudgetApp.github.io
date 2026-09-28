@@ -66,7 +66,7 @@ function App() {
         <section className="workspace-intro">
           <div>
             <p className="eyebrow">YOUR BUDGET, ORGANIZED</p>
-            <h1>Spaces</h1>
+            <h1 >Fs</h1>
             <p className="workspace-subtitle">Build a home for every plan, project, and purchase.</p>
           </div>
           <span className="group-count">{groups.length} {groups.length === 1 ? 'group' : 'groups'}</span>
